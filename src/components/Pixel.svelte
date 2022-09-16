@@ -1,5 +1,5 @@
 <script>
-  import { activeSquares } from "../stores.js";
+  import { activeSquares, activeColor } from "../stores.js";
   export let key;
   let isActive = false;
 
@@ -19,13 +19,18 @@
 </script>
 
 {#if isActive}
-  <div on:click={handleClick} {key} class="pixel bg-black" />
+  <div on:click={handleClick} {key} class="pixel bg-white" />
 {:else}
-  <div on:click={handleClick} {key} class="pixel bg-gray-100" />
+  <div
+    on:click={handleClick}
+    {key}
+    class="pixel"
+    style="background-color: {$activeColor}"
+  />
 {/if}
 
 <style>
   .pixel {
-    @apply w-8 h-8;
+    @apply w-6 h-6;
   }
 </style>
