@@ -21,10 +21,13 @@ const shuffle = (array) => {
   return array;
 };
 
-//https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n
-const a = Array.from(Array(16).keys());
-const b = shuffle(a);
-const c = b.slice(13);
+export const shufflePixels = () => {
+  //https://stackoverflow.com/questions/3746725/how-to-create-an-array-containing-1-n
+  const a = Array.from(Array(16).keys());
+  const b = shuffle(a);
+  const c = b.slice(10 + ~~(Math.random() * 5));
+  return c;
+};
 
-export const activeSquares = writable(c);
+export const activeSquares = writable(shufflePixels());
 export const activeColor = writable("#5551FF");

@@ -1,6 +1,4 @@
 <script>
-  import Tab from "./Tab.svelte";
-  import { activeColor } from "../stores.js";
   import html2canvas from "html2canvas";
   const handleCapture = () => {
     html2canvas(document.querySelector("#capture")).then((canvas) => {
@@ -26,29 +24,10 @@
   };
 </script>
 
-<div
-  id="capture"
-  class="w-72 h-72 flex items-center justify-center rounded-full"
-  style="background-color: {$activeColor}"
->
-  <div>
-    <div class="flex">
-      <div>
-        <Tab />
-      </div>
-      <div class="-scale-x-100 -ml-6">
-        <Tab />
-      </div>
-    </div>
-    <div class="flex -scale-y-100 -mt-6">
-      <div>
-        <Tab />
-      </div>
-      <div class=" -scale-x-100 -ml-6">
-        <Tab />
-      </div>
-    </div>
-  </div>
-</div>
+<button on:click={handleCapture}>save</button>
 
-<button on:click={handleCapture}>capture</button>
+<style>
+  button {
+    @apply px-6 py-2 bg-slate-300 rounded-full;
+  }
+</style>

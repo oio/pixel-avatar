@@ -1,14 +1,23 @@
 ---
-import All from "../components/All.svelte";
 import CPicker from "../components/CPicker.svelte";
+import SaveButton from "../components/SaveButton.svelte";
+import ShuffleButton from "../components/ShuffleButton.svelte";
+import Avatar from "../components/Avatar.svelte";
 ---
 
-<div class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
-  <All client:load />
+<div class="w-72 text-center mx-auto mt-20">
+  <Avatar client:load />
+  <div class="mt-8 mb-8">
+    <ShuffleButton client:load />
+  </div>
+  <CPicker client:load />
+  <div class="mt-8">
+    <SaveButton client:load />
+  </div>
 </div>
 
-<CPicker client:load />
-
 <style>
-
+  body {
+    @apply bg-gray-100;
+  }
 </style>
