@@ -10,6 +10,6 @@
 
 <style>
   button {
-    @apply px-6 py-2 bg-slate-300 rounded-full;
+    @apply px-6 py-2 bg-slate-300 rounded-full font-outfitreg;
   }
 </style>

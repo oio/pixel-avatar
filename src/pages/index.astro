@@ -1,22 +1,33 @@
 ---
+import Layout from "../layouts/Layout.astro";
 import CPicker from "../components/CPicker.svelte";
 import SaveButton from "../components/SaveButton.svelte";
 import ShuffleButton from "../components/ShuffleButton.svelte";
 import Avatar from "../components/Avatar.svelte";
 ---
 
-<div class="w-72 text-center mx-auto mt-20">
-  <Avatar client:load />
-  <div class="mt-8 mb-8">
-    <ShuffleButton client:load />
+<Layout>
+  <div class="w-72 text-center mx-auto mt-10" style="color:#3C4043">
+    <div class="mb-8">
+      <h1 class="font-semibold font-sans text-5xl">oio avatar builder</h1>
+    </div>
+    <Avatar client:load />
+    <div class="mt-8 mb-8">
+      <ShuffleButton client:load />
+    </div>
+    <CPicker client:load />
+    <div class="mt-8">
+      <SaveButton client:load />
+    </div>
   </div>
-  <CPicker client:load />
-  <div class="mt-8">
-    <SaveButton client:load />
-  </div>
-</div>
+</Layout>
 
 <style>
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+  }
   body {
     @apply bg-gray-100;
   }

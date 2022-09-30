@@ -1,0 +1,78 @@
+---
+// import { ImageSupportDetection } from "astro-imagetools/components";
+// import { renderImg } from "astro-imagetools/api";
+// let ogImageSrc = "";
+import { SEO } from "astro-seo";
+
+// const renderedHTML = await renderImg({
+//   src: ogs.imgSrc,
+//   alt: "useless tag",
+//   layout: "fixed",
+//   format: "jpeg",
+//   width: 1200,
+//   height: 630,
+// }).then((result) => {
+//   const imgTag = parse(result.img);
+//   ogImageSrc = `${Astro.url.origin}${imgTag[0].attribs.src}`;
+// });
+
+const og = {
+  basic: {
+    title: "title",
+    type: "article",
+    image: "img.jpg",
+    url: Astro.url,
+  },
+  optional: {
+    description: " reck",
+  },
+  image: {
+    alt: "alt image",
+    height: "630",
+    width: "1200",
+  },
+};
+
+const twit = {
+  card: "summary",
+  site: "@mttlgl",
+  creator: "@mttlgl",
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="icon" type="image/png" href="/temp-favicon.png" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <SEO
+      title="title"
+      description="description"
+      openGraph={og}
+      twitter={twit}
+      extend={{
+        // extending the default link tags
+        link: [{ rel: "icon", href: "favicon.png" }],
+        // extending the default meta tags
+        meta: [
+          {
+            name: "twitter:image",
+            content: "og.png",
+          },
+          { name: "twitter:title", content: og.basic.title },
+          { name: "twitter:description", content: "description" },
+        ],
+      }}
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
